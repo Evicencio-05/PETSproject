@@ -6,6 +6,10 @@
     justify-content: space-evenly;
 }
 
+body, html {
+    height: 100%;
+}
+
 header {
     position: fixed;
     top: 0;
@@ -30,6 +34,13 @@ hr {
     height: 6px;
     background-color: rgb(153, 148, 148);
     margin: 10px 0;
+}
+
+.page-wrapper {
+    height: 100%;
+    margin:  0px auto;
+    overflow: hidden;
+    background-color: rgb(206, 205, 205);
 }
 
 .grow {
@@ -82,13 +93,14 @@ hr {
     color: black;
 }
 
-.header-nav .login-btn {
+.header-nav .login-btn, .create-new-workout {
     padding: 10px 20px;
     margin-left: 30px;
     font-size: 1.2em;
 }
 
-.header-nav button {
+.header-nav button, .create-new-workout {
+    cursor: pointer;
     padding: 10px 20px;
     margin-left: 30px;
     font-size: 1.2em;
@@ -97,13 +109,13 @@ hr {
     border-radius: 5%;
 }
 
-.header-nav button:hover {
+.header-nav button:hover, .create-new-workout:hover {
     background-color: white;
     border: none;
     margin-left: 34px;
 }
 
-.patient-list {
+.list-container {
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -111,7 +123,7 @@ hr {
     margin-bottom: 20px;
 }
 
-.patient-list h4 {
+.list-container h4 {
     display: flex;
     margin-bottom: 20px;
     justify-content: center;
@@ -156,6 +168,7 @@ hr {
     border: none;
     background: none;
     cursor: pointer;
+    width: 90%;
 }
 
 .card textarea {
@@ -165,16 +178,16 @@ hr {
     cursor: pointer;
     scrollbar-width: none;
     margin-bottom: 5px;
+    width: 90%;
 }
 
 .card img {
-    height: 100px;
-    width: auto;
+    height: auto;
+    width: 90%;
     margin: 5px;
 }
 
-#popupBox {
-    display: none;
+.popup-box {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -184,9 +197,7 @@ hr {
     border-radius: 10px;
     padding: 20px;
     z-index: 1000;
-    
 }
-
 
 #popupImage {
     max-width: 100%;
