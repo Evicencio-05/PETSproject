@@ -7,6 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
+        <script src="index.js"></script>
     </head>
     <body>
         <div class="page-wrapper">
@@ -48,7 +49,7 @@
                                     <textarea name="diagnosis" class="diagnosis" readonly title="Click to enlarge.">test 2
                                     </textarea>
                                 </button>
-                                <button><img class="patientFormImage" src="/res/IMG_1508.JPG" alt="placeholder"></button>
+                                <a href="sheet.html"><img class="patientFormImage" src="/res/IMG_1508.JPG" alt="placeholder"></a>
                             </div>
                         </div>
                     </div>
@@ -62,7 +63,7 @@
                                     <textarea name="diagnosis" class="diagnosis" readonly title="Click to enlarge.">test 3
                                     </textarea>
                                 </button>
-                                <button><img class="patientFormImage" src="/res/IMG_1508.JPG" alt="placeholder"></button>
+                                <a href="sheet.html"><img class="patientFormImage" src="/res/IMG_1508.JPG" alt="placeholder"></a>
                             </div>
                         </div>
                     </div>
@@ -70,16 +71,12 @@
             </main>
         </div>
             
-            <div id="overlayBlur"></div>
-
-            <div class="overlay-container" id="popupOverlay">
-                <div class="popup-box" id="popupBox">
-                    <span id="closeButton">&times;</span>
-                    <p id="popupText"></p>
-                    <img id="popupImage" src="" alt="" style="display: none">
-                </div>
+        <div class="overlay-container" id="popupOverlay">
+            <div class="popup-box" id="popupBox">
+                <span id="closeButton">&times;</span>
+                <p id="popupText"></p>
+                <img id="popupImage" src="" alt="" style="display: none">
             </div>
-            
-            <script src="index.js"></script>
+        </div>
     </body>
 </html>

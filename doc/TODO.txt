@@ -1,6 +1,5 @@
 Current Objective :
-    - Fix workout form popup
     - Workout plans for patients have to be an editable form. 
-    - Can add/remove workouts to/from form
+    - Can remove workouts from form
 
 Create workout sheet draft

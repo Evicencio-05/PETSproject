@@ -1,52 +1,102 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Pop up processing
     const diagnosis = document.getElementsByClassName('diagnosis');
-    const patientFormButton = document.querySelectorAll('button:has(.patientFormImage)');
-    const overlay = document.getElementById('popupOverlay');
+    const overlay = document.querySelector('.overlay-container');
     const closeButton = document.getElementById('closeButton');
+    const popup = document.querySelector ('.popup-box')
     const popupText = document.getElementById('popupText');
     const popupImage = document.getElementById('popupImage');
-    const overlayBlur = document.getElementById('overlayBlur');
-    
-    const workoutFromOverlay = document.getElementById('workoutFormOverlay');
-    const workoutPopup = document.getElementById('workoutPopup');
-    
-    for (let i = 0; i < diagnosis.length; i++) {
-        diagnosis[i].addEventListener('click', function() {
-            popupImage.style.display = 'none';
-            popupText.textContent = this.value;
-            popupText.style.display = 'block'
-            openPopup();
-        });
-    }
-
-    for (let i = 0; i < patientFormButton.length; i++) {
-        patientFormButton[i].addEventListener('click', function(e) {
-            e.preventDefault();
-            const img = this.querySelector('.patientFormImage');
-            popupImage.src = img.src;
-            popupImage.alt = img.alt;
-            popupImage.style.display = 'block';
-            popupText.style.display = 'none'
-            openPopup();
-        });
-    }
-
-    function openWorkoutForm() {
-        workoutFromOverlay.style.display = 'block';
-        workoutPopup.style.display = 'block';
-    }
 
     function openPopup() {
-        overlay.style.display = 'block';
-        overlayBlur.style.display = 'block';
+        if (overlay) overlay.style.display = 'block';
     }
 
     function closePopup() {
-        overlay.style.display = 'none';
-        overlayBlur.style.display = 'none';
+        if (overlay) overlay.style.display = 'none';
     }
 
-    closeButton.addEventListener('click', closePopup);
-    overlayBlur.addEventListener('click', closePopup);
-    workoutFromOverlay.addEventListener('click', openWorkoutForm);
+    function preventBubbling(event) {
+        event.stopPropagation();
+    }
+
+    // Event listeners for diagnosis buttons
+    for (let i = 0; i < diagnosis.length; i++) {
+        diagnosis[i].addEventListener('click', function() {
+            if (popupImage) popupImage.style.display = 'none';
+            if (popupText) {
+                popupText.textContent = this.value;
+                popupText.style.display = 'block';
+            }
+            openPopup();
+        });
+    }
+
+    if (window.location.pathname === '/src/sheet.html') {
+        const createNewWorkout = document.getElementById('createNewWorkout');
+        if (createNewWorkout) {
+            createNewWorkout.addEventListener('click', openPopup);
+        }
+    }
+    
+    if (popup) {
+        popup.addEventListener('click', preventBubbling);
+    }
+
+    if (overlay) {
+        overlay.addEventListener('click', closePopup);
+    }
+
+    if (closeButton) {
+        closeButton.addEventListener('click', closePopup);
+    }
+
+    // End pop up processing
+
+
+
+    // Form submission and creation
+    const workoutForm = document.querySelector(".workout-form-contents");
+    const workoutTable = document.querySelector(".workoutTable tbody");
+
+    // Prevent the form from submitting normally
+    if (workoutForm) {
+        workoutForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get values
+            const name = document.getElementById('name').value;
+            const sets = document.getElementById('sets').value;
+            const reps = document.getElementById('reps').value;
+            const notes = document.getElementById('notes').value;
+            
+            // Create new placeholder row
+            const newRow = document.createElement('tr');
+            
+            // Create and populate cells
+            newRow.innerHTML = `
+                <td class="workout-checkbox"><input type="checkbox"></td>
+                <td class="workout-name">${name}</td>
+                <td class="sets-and-reps">Sets: ${sets}<br>Reps: ${reps}</td>
+                <td><div class="workout-notes">${notes}</div></td>
+            `;
+            
+            if (workoutTable) {
+                workoutTable.appendChild(newRow);
+            } else {
+                console.error('Workout table not found');
+            }
+            
+            // Clear form
+            workoutForm.reset();
+            
+            if (typeof closePopup === 'function') {
+                closePopup();
+            }
+            
+            console.log('New row successfully added!');
+        });
+    } else {
+        console.error('Workout form not found')
+    }
+    //End from submission and creation
 });

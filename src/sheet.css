@@ -1,27 +1,74 @@
-.create-new-workout {
-    position: absolute;
-    right: 7%;
-}
-
-.overlay-container {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.034);
-    backdrop-filter: blur(5px);
-    z-index: 1000;
-    /* transition: opacity 0.3s ease; */
-}
-
-.workout-from-content {
+form {
+    display: inline-block;
     text-align: center;
+    padding: 1em;
+    border: none;
 }
 
-.list-container h4 {
+form ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+form li {
+    margin-top: 1em;
+}
+
+form label {
+    display: inline-block;
+    min-width: 60px;
+    text-align: left;
+}
+
+form input, form textarea {
+    font: 1em verdana;
+    width: 300px;
+    box-sizing: border-box;
+    border: 1px solid #999;
+    background-color: rgb(221, 221, 221);
+}
+
+.submit-workout {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.submit-workout:hover {
+    background-color: #45a049;
+}
+
+.workout-list-container {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    min-width: 600px;
+}
+
+.workout-list-container-header {
+    display: flex;
+    align-items: center;
+}
+
+.workout-list-container h4 {
     font-size: 1.5em;
+    margin: 0 25% 0 50%;
+    width: fit-content;
+}
+
+.create-new-workout-btn {
+    width: 100px;
+    height: 50px;
+    margin-left: auto;
 }
 
 .workout-list {
@@ -31,13 +78,7 @@
     height: fit-content;
     margin: 0 auto;
     width: 100%;
-    height: 500px;
-    border: 2px black solid;
-    border-radius: 5px;
-}
-
-.workout-list tbody th {
-    border: 1px black solid;
+    padding: 5px;
 }
 
 .workout-list thead {
@@ -47,7 +88,6 @@
 .workout-list th {
     padding: 4px;
     max-width: 33%;
-    text-wrap: balance;
 }
 
 .workout-list .workout-checkbox {
@@ -58,7 +98,26 @@
     cursor: pointer;
 }
 
-.workout-list .workout-name {
+.workout-list td {
+    border: 1px black solid;
+    text-align: center;
+    padding: 5px;
+}
+
+.workout-list tr {
+    max-height: 5px;
+}
+
+.workout-list .workout-name, .sets-and-reps {
+    width: fit-content;
+    min-width: 100px;
     max-width: 20%;
+}
+
+.workout-list .workout-notes {
+    width: fit-content;
+    overflow: scroll;
+    scrollbar-width: none;
+    max-height: 100px;
 }
 
