@@ -12,89 +12,85 @@
         <script src="index.js"></script>
     </head>
     <body>
-        <div class="page-wrapper">
-            <header>
-                <div class="user">
-                    <a href="" alt="Profile page">
-                        <img class="user-image" src="/res/IMG_1508.JPG" alt="Marley :)">
-                    </a>
-                    <ul>
-                        <li><h3>Marley</h3></li>
-                        <li>company</li>
-                        <li>occupation</li>
-                    </ul>
-                </div>
-                <nav class="header-nav">
-                    <a class="grow" href="index.html">Patients</a>
-                    <a class="grow" href="sheet.html">Placeholder</a>
-                    <a class="grow" href="#">Placeholder</a>
-                    <a class="grow" href="#">Placeholder</a>
-                    <button>Login</button>
-                </nav>
-            </header>
-            <main>
-                <div class="overlay-container" id="workoutFormOverlay">
-                    <div class="popup-box" id="workoutPopup">
-                        <form class="workout-form-contents" id="workoutForm">
-                            <ul>
-                                <li>
-                                    <label class="form-label" for="name">Name:</label>
-                                    <input class="form-input" type="text" placeholder="Enter workout name" id="name" name="workout_name" required>
-                                </li>
-                                <li>
-                                    <label class="form-label" for="sets">Sets:</label>
-                                    <input class="form-input" type="number" placeholder="Enter sets" id="sets" name="workout_sets" min="0" required>
-                                </li>
-                                <li>
-                                    <label class="form-label" for="reps">Reps:</label>
-                                    <input class="form-input" type="number" placeholder="Enter reps" id="reps" name="workout_reps" min="0" required>
-                                </li>
-                                <li>
-                                    <label class="form-label" for="notes">Notes:</label>
-                                    <textarea class="form-input" type="text" placeholder="Enter notes" id="notes" name="workout_notes"></textarea>
-                                    
-                                </li>
-                                <li>
-                                    <button class="submit-workout" type="submit">Submit</button>
-                                </li>
-                                <span id="closeButton">&times;</span>
-                            </ul>
+        <header>
+            <div class="user">
+                <a href="" alt="Profile page">
+                    <img class="user-image" src="/res/IMG_1508.JPG" alt="Marley :)">
+                </a>
+                <ul>
+                    <li><h3>Marley</h3></li>
+                    <li>company</li>
+                    <li>occupation</li>
+                </ul>
+            </div>
+            <nav class="header-nav">
+                <a class="grow" href="index.html">Patients</a>
+                <a class="grow" href="sheet.html">Placeholder</a>
+                <a class="grow" href="#">Placeholder</a>
+                <a class="grow" href="#">Placeholder</a>
+                <button>Login</button>
+            </nav>
+        </header>
+        <main>
+            <div class="overlay-container" id="workoutFormOverlay">
+                    <form class="workout-form-contents popup-box" id="workoutForm">
+                        <ul>
+                            <li>
+                                <label class="form-label" for="name">Name:</label>
+                                <input class="form-input" type="text" placeholder="Enter workout name" id="name" name="workout_name" required>
+                            </li>
+                            <li>
+                                <label class="form-label" for="sets">Sets:</label>
+                                <input class="form-input" type="number" placeholder="Enter sets" id="sets" name="workout_sets" min="0" required>
+                            </li>
+                            <li>
+                                <label class="form-label" for="reps">Reps:</label>
+                                <input class="form-input" type="number" placeholder="Enter reps" id="reps" name="workout_reps" min="0" required>
+                            </li>
+                            <li>
+                                <label class="form-label" for="notes">Notes:</label>
+                                <textarea class="form-input" type="text" placeholder="Enter notes" id="notes" name="workout_notes"></textarea>
+                                
+                            </li>
+                            <li>
+                                <button class="submit-workout" type="submit">Submit</button>
+                            </li>
+                            <span id="closeButton">&times;</span>
+                        </ul>
 
-                        </form>
-                    </div>
-                </div>
+                    </form>
+            </div>
 
-                <div class="workout-list-container">
-                    <div class="workout-list-container-header">
-                        <h4>Patient</h4>
-                        <button class="create-new-workout-btn" id="createNewWorkout" title="Add a new workout">
-                            Add
-                        </button>
-                    </div>
-                    <div class="workout-list">
-                        <table id="workoutTable" class="workoutTable">
-                            <thead>
-                                <th scope="col"></th>
-                                <th scope="col" class="workout-name">Name</th>
-                                <th scope="col" class="sets-and-reps">Sets / Reps</th>
-                                <th scope="col" class="workout-notes">Notes</th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="workout-checkbox"><input type="checkbox" name="" id=""></th>
-                                    <td class="workout-name">Chair assisted squats</th>
-                                    <td class="sets-and-reps">Sets: 5<br>Reps: 20</th>
-                                    <td>
-                                        <div class="workout-notes">
-                                            THis is a note what if we made this longer. That should help see more text and often this will be a little longer as the therpist will need to add notes that can constantly be displayed
-                                        </div>
-                                    </th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+            <div class="workout-list-container">
+                <div class="workout-list-container-header">
+                    <h4>Patient</h4>
+                    <button class="create-new-workout-btn" id="createNewWorkout" title="Add a new workout">
+                        Add
+                    </button>
                 </div>
-            </main>
-        </div>
+                <div class="workout-list">
+                    <table id="workoutTable" class="workoutTable">
+                        <thead>
+                            <th scope="col"></th>
+                            <th scope="col" class="workout-name">Name</th>
+                            <th scope="col" class="sets-and-reps">Sets / Reps</th>
+                            <th scope="col" class="workout-notes">Notes</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="workout-checkbox"><input type="checkbox" name="" id=""></th>
+                                <td class="workout-name">Chair assisted squats</th>
+                                <td class="sets-and-reps">Sets: 5<br>Reps: 20</th>
+                                <td>
+                                    <div class="workout-notes">
+                                        THis is a note what if we made this longer. That should help see more text and often this will be a little longer as the therpist will need to add notes that can constantly be displayed
+                                    </div>
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
     </body>
 </html>

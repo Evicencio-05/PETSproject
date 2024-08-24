@@ -32,7 +32,7 @@ hr {
     margin: 10px 0;
 }
 
-.page-wrapper {
+body {
     height: 100vh;
     margin:  0px auto;
     overflow: hidden;
